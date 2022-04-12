@@ -25,9 +25,9 @@ Route::post('/login', [AuthController::class,'login']);
 Route::post('/logout', [AuthController::class,'logout']);
 
 Route::post('/adduser', [UserController::class,'addUser']);
-Route::put('/user', [UserController::class,'updateUser']);
-Route::delete('/user', [UserController::class,'deleteUser']);
+Route::put('/edituser', [UserController::class,'updateUser']);
+Route::delete('/deleteuser', [UserController::class,'deleteUser']);
 
 Route::post('/addplace', [HostController::class,'addPlace']);
 Route::put('/editplace', [HostController::class,'updatePlace']);
-Route::delete('/deleteplace', [HostController::class,'deletePlace']);
+Route::delete('/deleteplace', [HostController::class,'deleteplace']);

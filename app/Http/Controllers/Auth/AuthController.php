@@ -20,9 +20,11 @@ class AuthController extends Controller
             } elseif ($user ['password'] == $request ['password']) {
                 $request -> session() -> put('email',$request['email']);
                 return redirect()->action([UserController::class, 'getUser']);
-            }else {
+            } else {
                 return redirect()->back()->with('error', 'Email atau Password salah');
             }
+        } else {
+            return redirect()->back()->with('error', 'Email atau Password salah');
         }
     }
     
