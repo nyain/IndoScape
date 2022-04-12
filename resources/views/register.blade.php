@@ -23,6 +23,7 @@
               </div>
               <div class="row">
                 <form control="" class="form-group" action="/api/adduser" method="POST">
+                  @csrf
                   <div class="row">
                     <input type="tex" name="name" id="name" class="form__input" placeholder="Name">
                   </div>

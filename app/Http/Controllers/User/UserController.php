@@ -9,8 +9,12 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function getUser(){
-        $user = User::all();
-        return view('home',['user'=>$user]);
+        if (session() -> get('email') != null) {
+            $user = User::all();
+            return view('home',['user'=>$user]);
+        } else {
+            return redirect('/');
+        }
     }
 
     public function getaAdmin(){

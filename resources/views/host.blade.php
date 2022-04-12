@@ -10,7 +10,8 @@
   </head>
   <body>
       <div class="container">
-    <form  action="/api/addplace" method="POST">
+    <form  action="/api/addplace" method="POST" enctype="multipart/form-data">
+      @csrf
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Place name</label>
           <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
@@ -25,7 +26,7 @@
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Image</label>
-            <input type="text" class="form-control" id="image" name="image">
+            <input type="file" accept="image/png, image/jpeg" class="form-control" id="image" name="image">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>

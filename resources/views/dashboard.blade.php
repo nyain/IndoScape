@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    Halo admin
+    Halo admins
 </body>
 </html>

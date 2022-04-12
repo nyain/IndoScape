@@ -23,6 +23,7 @@
               </div>
               <div class="row">
                 <form control="" class="form-group" action="/api/login" method="POST">
+                  @csrf
                   <div class="row">
                     <input type="email" name="email" id="email" class="form__input" placeholder="Email">
                   </div>
@@ -42,7 +43,11 @@
           </div>
         </div>
       </div>
-      
+      @if ($message = Session::get('error'))
+     <div class="alert alert-danger mt-2" role="alert">
+      {{ $message }}
+     </div>
+    @endif
     </body>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

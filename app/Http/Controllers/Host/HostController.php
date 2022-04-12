@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Host;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 
 class HostController extends Controller
 {
@@ -15,10 +16,18 @@ class HostController extends Controller
     }
 
     public function addPlace(Request $request){
-        $host = Host::create($request -> toArray());
+        $document = $request -> file('image');
+        $imagename = time().".".$document -> extension();
+        $document -> move(public_path('images'),$imagename);
+        $coba ['name'] = $request['name'];
+        $coba ['price'] = $request['price'];
+        $coba ['description'] = $request['description'];
+        $coba ['image'] = $imagename;
+        $host = Host::create($coba);
         return redirect()->action([HostController::class, 'getHost']);
-        // error_log('masuk bjir');
-        // return response($request -> all(),200);
+        
+        // error_log($request -> file('image'));
+        // return response($request -> toArray(),200);
     }
 
     public function updatePlace(Request $request){

@@ -15,15 +15,20 @@ class AuthController extends Controller
         $user = User::where('email', $request -> email) -> first();
         if ($user) {
             if ($user ['password'] == $request ['password'] && $user ['is_admin'] == true) {
-                session() -> put('email',$request['email']);
+                $request -> session() -> put('email',$request['email']);
                 return redirect()->action([UserController::class, 'getaAdmin']);
             } elseif ($user ['password'] == $request ['password']) {
-                session() -> put('email',$request['email']);
+                $request -> session() -> put('email',$request['email']);
                 return redirect()->action([UserController::class, 'getUser']);
-            }
-            else {
+            }else {
                 return redirect()->back()->with('error', 'Email atau Password salah');
             }
         }
+    }
+    
+    public function logout(){
+        error_log('logout gagal');
+        session() -> forget('email'); 
+        return redirect('/');
     }
 }
