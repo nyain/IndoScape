@@ -15,6 +15,11 @@ class HostController extends Controller
         return view('host',['user'=>$host]);
     }
 
+    public function getHostList(){
+        $host = Host::all();
+        return view('hostlist',['user'=>$host]);
+    }
+
     public function addPlace(Request $request){
         $document = $request -> file('image');
         $imagename = time().".".$document -> extension();
@@ -24,7 +29,7 @@ class HostController extends Controller
         $coba ['description'] = $request['description'];
         $coba ['image'] = $imagename;
         $host = Host::create($coba);
-        return redirect()->action([HostController::class, 'getHost']);
+        return redirect()->action([HostController::class, 'getHostList']);
         
         // error_log($request -> file('image'));
         // return response($request -> toArray(),200);

@@ -47,24 +47,18 @@
           <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto pt-2 pt-lg-0">
             </ul>
-            <form class="ps-lg-5">
+            <form class="ps-lg-5" action="host">
+              <button class="btn btn-lg btn-outline-primary order-0" type="submit">Become a Host</button>
+            </form>
+            <form class="ps-lg-5" action="/api/logout" method="POST">
+              <button class="btn btn-lg btn-outline-primary order-0" type="submit">Logout</button>
             </form>
           </div>
         </div>
       </nav>
-      <section class="py-0">
+      <section class="pt-5">
         
-        <!--/.bg-holder-->
-
-        <div class="container position-relative">
-          <div class="row align-items-center min-vh-75 my-lg-8">
-            <form action="/api/logout" method="POST">
-              <button type="submit" class="btn btn-primary">Logout</button>
-            </form>
-          </div>
-        </div>
-      </section>
-        
+      </section>    
 
     </main>
     

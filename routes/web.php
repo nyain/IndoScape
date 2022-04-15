@@ -22,6 +22,7 @@ Route::get('/', function () {
 
 Route::get('home', [UserController::class,'getUser']);
 Route::get('host', [HostController::class,'getHost']);
+Route::get('hostlist', [HostController::class,'getHostList']);
 
 Route::get('dashboard', [UserController::class,'getaAdmin']);
 
