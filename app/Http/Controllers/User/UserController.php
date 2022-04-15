@@ -22,11 +22,6 @@ class UserController extends Controller
         return view('dashboard',['user'=>$user]);
     }
 
-    public function getHostList(){
-        $user = User::all();
-        return view('hostlist',['user'=>$user]);
-    }
-
     public function addUser(Request $request){
         if($request ['is_admin'] == null){
             $request['is_admin'] = 0;
