@@ -17,6 +17,11 @@ class UserController extends Controller
         }
     }
 
+    public function getTableUser(){
+        $user = User::all();
+        return view('tableuser',['user'=>$user]);
+    }
+
     public function getaAdmin(){
         $user = User::all();
         return view('dashboard',['user'=>$user]);
