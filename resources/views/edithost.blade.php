@@ -1,37 +1,222 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../../assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="../../../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../assets/libs/css/style.css">
+    <link rel="stylesheet" href="../../../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../../../assets/vendor/charts/chartist-bundle/chartist.css">
+    <link rel="stylesheet" href="../../../assets/vendor/charts/morris-bundle/morris.css">
+    <link rel="stylesheet" href="../../../assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../../assets/vendor/charts/c3charts/c3.css">
+    <link rel="stylesheet" href="../../../assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
+    <link href='../../../../images/logo.png' rel='SHORTCUT ICON' />
+    <title>Admin</title>
+</head>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<body>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        <div class="dashboard-header">
+            <nav class="navbar navbar-expand-lg bg-white fixed-top">
+                <a class="navbar-brand" href="dashboard">IndoScape</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                        <li class="nav-item">
 
-    <title>Hello, world!</title>
-  </head>
-  <body>
-      <div class="container">
-    <form  action="/api/editplace" method="POST" enctype="multipart/form-data">
-      @csrf
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Place name</label>
-          <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" value="{{ $data -> name }}">
+                        </li>
+                        <form class="ps-lg-5" action="/api/logout" method="POST">
+                                <li class="nav-item dropdown nav-user">
+                                    <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false"><img src="img/avatar.png"
+                                            alt="" class="user-avatar-md rounded-circle">&nbsp;&nbsp;&nbsp;Admin <i
+                                            class="fas fa-angle-down"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                                    <button class="dropdown-item" type="submit"><i class="fas fa-power-off mr-2"></i>Logout</button>
+                                    </div>
+                                </li>
+                            </form>
+                    </ul>
+                </div>
+            </nav>
         </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Price</label>
-          <input type="number" class="form-control" id="price" name="price" value="{{ $data -> price }}">
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        <div class="nav-left-sidebar sidebar-dark">
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-divider">
+                                Menu
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="../../../dashboard.php" aria-expanded="false" data-target="#submenu-1"
+                                    aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Dashboard
+                                    <span class="badge badge-success">6</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false"
+                                    data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-fw fa-table"></i>Tables</a>
+                                <div id="submenu-5" class="collapse submenu show" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Data User</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link active" href="table_customer.php">Data Host</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Data Wisata</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Data Transaksi</a>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Description</label>
-            <textarea name="description" id="description" cols="30" rows="10" class="form-control" value="{{ $data -> description }}"></textarea>
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                <div class="container-fluid dashboard-content ">
+                    <!-- ============================================================== -->
+                    <!-- pageheader  -->
+                    <!-- ============================================================== -->
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="page-header">
+                                <h2 class="pageheader-title">Customer</h2>
+                                <div class="page-breadcrumb">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Tables</a></li>
+                                            <li class="breadcrumb-item"><a href="table_customer.php" class="breadcrumb-link">Data
+                                                    Customer</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page"></li>Form Host
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <h5 class="card-header">Data Host</h5>
+                            <div class="card-body">
+                                <form action="/api/editplace" method="PUT" enctype="multipart/form-data">
+                                  @csrf
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label">ID Host</label>
+                                        <div class="col-md-9">
+                                            <input type="text" name="id" id="id" class="form-control" >
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label">Place Name</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" id="name" name="name" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label">Price</label>
+                                        <div class="col-md-9">
+                                            <input type="number" name="price" id="price" class="form-control" 
+                                           required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label">Description</label>
+                                        <div class="col-md-9">
+                                            <textarea name="description" id="description" cols="30" rows="10" class="form-control"
+                                             required></textarea>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group row mt-5">
+                                        <div class="col-md-6">
+                                            <!-- back to home -->
+                                            <a name="backBtn" id="backBtn" class="btn btn-dark btn-block btn-lg" href="#"
+                                                role="button">Kembali</a>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <input type="submit" class="btn btn-success btn-block btn-lg" value="Edit" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        {{-- <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Image</label>
-            <input type="file" accept="image/png, image/jpeg" class="form-control" id="image" name="image">
-        </div> --}}
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+        <!-- ============================================================== -->
+        <!-- end wrapper  -->
+        <!-- ============================================================== -->
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- ============================================================== -->
+    <!-- end main wrapper  -->
+    <!-- ============================================================== -->
+    <!-- Optional JavaScript -->
+    <!-- jquery 3.3.1 -->
+    <script src="../../../assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <!-- bootstap bundle js -->
+    <script src="../../../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <!-- slimscroll js -->
+    <script src="../../../assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+    <!-- main js -->
+    <script src="../../../assets/libs/js/main-js.js"></script>
+    <!-- chart chartist js -->
+    <script src="../../../assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+    <!-- sparkline js -->
+    <script src="../../../assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+    <!-- morris js -->
+    <script src="../../../assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+    <script src="../../../assets/vendor/charts/morris-bundle/morris.js"></script>
+    <!-- chart c3 js -->
+    <script src="../../../assets/vendor/charts/c3charts/c3.min.js"></script>
+    <script src="../../../assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+    <script src="../../../assets/vendor/charts/c3charts/C3chartjs.js"></script>
+    <script src="../../../assets/libs/js/dashboard-ecommerce.js"></script>
+</body>
 
-  </body>
 </html>

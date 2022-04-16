@@ -25,6 +25,8 @@ Route::get('host', [HostController::class,'getHost']);
 Route::get('hostlist', [HostController::class,'getHostList']);
 Route::get('tableuser', [UserController::class,'getTableUser']);
 
+Route::get('edithost', [HostController::class,'editHostList']);
+
 Route::get('dashboard', [UserController::class,'getaAdmin']);
 
 Route::get('/register', function () {

@@ -136,7 +136,7 @@
                                 <div class="card">
                                     <h5 class="card-header">Data Host</h5>
                                     <div class="card-body">
-                                        <a href="#" class="btn btn-primary">Tambah Data</a>
+                                        <a href="host" class="btn btn-primary">Tambah Data</a>
                                         @if ($message = Session::get('success'))
                                         <div class="alert alert-success mt-2" role="alert">
                                             {{ $message }}
@@ -172,7 +172,7 @@
                                                     <td>
                                                         <a href="/deletewisata/{{$row->id }}"
                                                             class="btn btn-danger mb-1">Delete</a>
-                                                        <a href="/showwisata/{{$row->id }}"
+                                                        <a href="edithost"
                                                             class="btn btn-primary">Edit</a>
                                                     </td>
                                                 </tr>
