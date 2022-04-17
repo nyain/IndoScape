@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -36,16 +37,16 @@
 
                                 </li>
                                 <form class="ps-lg-5" action="/api/logout" method="POST">
-                                <li class="nav-item dropdown nav-user">
-                                    <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false"><img src="img/avatar.png"
-                                            alt="" class="user-avatar-md rounded-circle">&nbsp;&nbsp;&nbsp;Admin <i
-                                            class="fas fa-angle-down"></i></a>
-                                    <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
-                                    <button class="dropdown-item" type="submit"><i class="fas fa-power-off mr-2"></i>Logout</button>
-                                    </div>
-                                </li>
-                            </form>
+                                    <li class="nav-item dropdown nav-user">
+                                        <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false"><img src="img/avatar.png"
+                                                alt="" class="user-avatar-md rounded-circle">&nbsp;&nbsp;&nbsp;Admin <i
+                                                class="fas fa-angle-down"></i></a>
+                                        <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                                        <button class="dropdown-item" type="submit"><i class="fas fa-power-off mr-2"></i>Logout</button>
+                                        </div>
+                                    </li>
+                                </form>
                             </ul>
                         </div>
                     </nav>
@@ -59,7 +60,7 @@
                 <div class="nav-left-sidebar sidebar-dark">
                     <div class="menu-list">
                         <nav class="navbar navbar-expand-lg navbar-light">
-                            <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+                            <a class="d-xl-none d-lg-none" href="dashboard">Dashboard</a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
@@ -79,12 +80,12 @@
                                             data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-fw fa-table"></i>Tables</a>
                                         <div id="submenu-5" class="collapse submenu">
                                             <ul class="nav flex-column">
-                                                <li class="nav-item">
+                                            <li class="nav-item">
                                                     <a class="nav-link" href="tableuser">Data
                                                         User</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="citylist">Data
+                                                    <a class="nav-link" href="#">Data
                                                         Kota</a>
                                                 </li>
                                                 <li class="nav-item">
@@ -123,17 +124,64 @@
                             <div class="row">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <div class="page-header">
-                                        <h2 class="pageheader-title">Dashboard</h2>
+                                        <h2 class="pageheader-title">User</h2>
+                                        <div class="page-breadcrumb">
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item"><a href="tableuser" class="breadcrumb-link">Tables</a></li>
+                                                    <li class="breadcrumb-item active" aria-current="page">Data Host</li>
+                                                </ol>
+                                            </nav>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
+        
                             <div class="col-xl-12">
                                 <div class="card">
-                                    <h3 class="card-header">Selamat Datang</h3>
+                                    <h5 class="card-header">Data Host</h5>
                                     <div class="card-body">
-                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum aliquam necessitatibus animi quia nemo amet omnis praesentium iure, vitae porro dolores rerum doloribus veritatis veniam laudantium dolorem ea sequi mollitia.</p>
-                                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non delectus exercitationem dolorum placeat debitis error dignissimos perferendis, temporibus facere ipsa consequuntur neque nulla fugit, cum est illum molestias harum suscipit.</p>
+                                        <a href="city" class="btn btn-primary">Tambah Data</a>
+                                        @if ($message = Session::get('success'))
+                                        <div class="alert alert-success mt-2" role="alert">
+                                            {{ $message }}
+                                        </div>
+                                        @endif
+                                        <br><br>
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Gambar</th>
+                                                    <th>Nama Kota</th>
+                                                    <th>Nama Provinsi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @php
+                                                $no = 1;
+                                                @endphp
+                                                @foreach ($city as $row)
+                                                <tr>
+                                                    <th scope="row">{{ $no++ }}</th>
+                                                    <td>
+                                                        <img src="{{ asset('images/'. $row->image) }}"
+                                                            alt="" style="width: 8em;">
+                                                    </td>
+                                                    <td>{{ $row->namecity }}</td>
+                                                    <td>{{ $row->nameprovince }}</td>
+                                                    <td>{{ $row->updated_at->format('D M Y') }}</td>
+                                                    <td>{{ $row->updated_at->diffForHumans() }}</td>
+                                                    <td>
+                                                        <a href="/deletewisata/{{$row->id }}"
+                                                            class="btn btn-danger mb-1">Delete</a>
+                                                        <a href="edithost"
+                                                            class="btn btn-primary">Edit</a>
+                                                    </td>
+                                                </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>

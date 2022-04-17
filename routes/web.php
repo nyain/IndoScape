@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\City\CityController;
 use App\Http\Controllers\Host\HostController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
@@ -21,11 +22,17 @@ Route::get('/', function () {
 });
 
 Route::get('home', [UserController::class,'getUser']);
+
 Route::get('host', [HostController::class,'getHost']);
 Route::get('hostlist', [HostController::class,'getHostList']);
+
+Route::get('city', [CityController::class,'getCity']);
+Route::get('citylist', [CityController::class,'getCityList']);
+
+
 Route::get('tableuser', [UserController::class,'getTableUser']);
 
-Route::get('edithost', [HostController::class,'editHostList']);
+// Route::get('edithost', [HostController::class,'editHostList']);
 
 Route::get('dashboard', [UserController::class,'getaAdmin']);
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\City\CityController;
 use App\Http\Controllers\Host\HostController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Http\Request;
@@ -31,3 +32,7 @@ Route::delete('/deleteuser', [UserController::class,'deleteUser']);
 Route::post('/addplace', [HostController::class,'addPlace']);
 Route::put('/editplace', [HostController::class,'updatePlace']);
 Route::delete('/deleteplace', [HostController::class,'deleteplace']);
+
+Route::post('/addcity', [CityController::class,'addCity']);
+Route::put('/editcity', [CityController::class,'updateCity']);
+Route::delete('/deletecity', [CityController::class,'deleteCity']);
