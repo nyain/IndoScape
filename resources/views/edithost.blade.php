@@ -146,26 +146,27 @@
                         <div class="card">
                             <h5 class="card-header">Data Host</h5>
                             <div class="card-body">
-                                <form action="/api/editplace" method="PUT" enctype="multipart/form-data">
+                                <form action="/api/editplace" method="POST" enctype="multipart/form-data">
                                   @csrf
+                                  @method('PUT')
                                     <div class="form-group row">
                                         <label class="col-md-3 col-form-label">ID Host</label>
                                         <div class="col-md-9">
-                                            <input type="text" name="id" id="id" class="form-control" >
+                                            <input type="text" name="id" id="id" class="form-control" value="{{$user->id}}" readonly>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label class="col-md-3 col-form-label">Place Name</label>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control" id="name" name="name" required>
+                                            <input type="text" class="form-control" id="name" name="name" value="{{$user->name}}" required>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label class="col-md-3 col-form-label">Price</label>
                                         <div class="col-md-9">
-                                            <input type="number" name="price" id="price" class="form-control" 
+                                            <input type="number" name="price" id="price" class="form-control" value="{{$user->price}}" 
                                            required>
                                         </div>
                                     </div>
@@ -174,20 +175,26 @@
                                         <label class="col-md-3 col-form-label">Description</label>
                                         <div class="col-md-9">
                                             <textarea name="description" id="description" cols="30" rows="10" class="form-control"
-                                             required></textarea>
+                                             required>{{$user->description}}</textarea>
                                         </div>
                                     </div>
 
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label">Image</label>
+                                        <div class="col-md-9">
+                                            <input type="file" name="image" id="image" accept="image/png, image/jpeg" required>
+                                        </div>
+                                    </div>
 
                                     <div class="form-group row mt-5">
                                         <div class="col-md-6">
                                             <!-- back to home -->
-                                            <a name="backBtn" id="backBtn" class="btn btn-dark btn-block btn-lg" href="#"
-                                                role="button">Kembali</a>
+                                            <a name="backBtn" id="backBtn" class="btn btn-dark btn-block btn-lg" 
+                                            href="javascript:javascript:history.go(-1)" role="button">Kembali</a>
                                         </div>
 
                                         <div class="col-md-6">
-                                            <input type="submit" class="btn btn-success btn-block btn-lg" value="Edit" />
+                                            <button type="submit" class="btn btn-success btn-block btn-lg">Edit</button>
                                         </div>
                                     </div>
                                 </form>

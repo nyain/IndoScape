@@ -20,6 +20,12 @@ class HostController extends Controller
         return view('hostlist',['user'=>$host]);
     }
 
+    public function editHost(Request $request){
+        $host = Host::where('id', $request -> id) -> first();
+        return view('edithost',['user'=>$host]);
+        // return response($request,200);
+    }
+
     public function addPlace(Request $request){
         $document = $request -> file('image');
         $imagename = time().".".$document -> extension();
@@ -37,13 +43,15 @@ class HostController extends Controller
 
     public function updatePlace(Request $request){
         $host = Host::where('id', $request -> id) -> first();
-        
+        $document = $request -> file('image');
+        $imagename = time().".".$document -> extension();
+        $document -> move(public_path('images'),$imagename);
         $host ['name'] = $request['name'];
         $host ['price'] = $request['price'];
         $host ['description'] = $request['description'];
-        $host ['image'] = $request['image'];
+        $host ['image'] = $imagename;
         $host -> save();
-        return redirect()->action([HostController::class, 'getHost']);
+        return redirect()->action([HostController::class, 'getHostList']);
         // error_log('masuk bjir');
         
     }
@@ -51,6 +59,6 @@ class HostController extends Controller
     public function deleteplace(Request $request){
         $host = host::where('id', $request -> id) -> first();
         $host -> delete();
-        return redirect()->action([HostController::class, 'getHost']);
+        return redirect()->action([HostController::class, 'getHostList']);
     }
 }

@@ -32,7 +32,7 @@ Route::get('citylist', [CityController::class,'getCityList']);
 
 Route::get('tableuser', [UserController::class,'getTableUser']);
 
-// Route::get('edithost', [HostController::class,'editHostList']);
+Route::get('edithost', [HostController::class,'editHost']);
 
 Route::get('dashboard', [UserController::class,'getaAdmin']);
 
