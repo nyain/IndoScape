@@ -80,18 +80,23 @@
                                             data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-fw fa-table"></i>Tables</a>
                                         <div id="submenu-5" class="collapse submenu">
                                             <ul class="nav flex-column">
-                                                <li class="nav-item">
+                                            <li class="nav-item">
                                                     <a class="nav-link" href="tableuser">Data
                                                         User</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="hostlist">Data
-                                                        Host</a>
+                                                    <a class="nav-link" href="#">Data
+                                                        Kota</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">Data
-                                                        Wisata</a>
+                                                        Tempat Wisata</a>
                                                 </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="hostlist">Data
+                                                        Tempat Penginapan Host</a>
+                                                </li>
+                                                
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">Data
                                                         Transaksi</a>

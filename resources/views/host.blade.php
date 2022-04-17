@@ -84,16 +84,25 @@
                                 <div id="submenu-5" class="collapse submenu show" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Data User</a>
+                                            <a class="nav-link" href="tableuser">Data
+                                                User</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link active" href="table_customer.php">Data Host</a>
+                                            <a class="nav-link" href="#">Data
+                                                Kota</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Data Wisata</a>
+                                            <a class="nav-link" href="#">Data
+                                                Tempat Wisata</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Data Transaksi</a>
+                                            <a class="nav-link" href="hostlist">Data
+                                                Tempat Penginapan Host</a>
+                                        </li>
+                                        
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Data
+                                                Transaksi</a>
                                         </li>
                                         
                                     </ul>

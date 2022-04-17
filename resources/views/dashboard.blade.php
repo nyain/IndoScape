@@ -84,13 +84,18 @@
                                                         User</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="hostlist">Data
-                                                        Host</a>
+                                                    <a class="nav-link" href="#">Data
+                                                        Kota</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">Data
-                                                        Wisata</a>
+                                                        Tempat Wisata</a>
                                                 </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="hostlist">Data
+                                                        Tempat Penginapan Host</a>
+                                                </li>
+                                                
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">Data
                                                         Transaksi</a>
