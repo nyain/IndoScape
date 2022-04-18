@@ -163,10 +163,15 @@
                                                     <td>{{ $row->updated_at->format('D M Y') }}</td>
                                                     <td>{{ $row->updated_at->diffForHumans() }}</td>
                                                     <td>
-                                                        <a href="/deletewisata/{{$row->id }}"
-                                                            class="btn btn-danger mb-1">Delete</a>
-                                                        <a href="/showwisata/{{$row->id }}"
-                                                            class="btn btn-primary">Edit</a>
+                                                        <form action="/api/deleteuser" method="POST" enctype="multipart/form-data">
+                                                            @method('DELETE')
+                                                            <input type="hidden" name="id" value="{{ $row->id }}">
+                                                            <button type="submit" class="btn btn-danger mb-1">DELETE</button>
+                                                        </form>
+                                                        <form action="/edituser" method="GET" enctype="multipart/form-data">
+                                                            <input type="hidden" name="id" value="{{ $row->id }}">
+                                                            <button type="submit" class="btn btn-primary">Edit</button>
+                                                         </form>
                                                     </td>
                                                 </tr>
                                                 @endforeach

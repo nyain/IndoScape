@@ -22,6 +22,11 @@ class UserController extends Controller
         return view('tableuser',['user'=>$user]);
     }
 
+    public function editUser(Request $request){
+        $user = User::where('id', $request -> id) -> first();
+        return view('edituser',['user'=>$user]);
+    }
+
     public function getaAdmin(){
         $user = User::all();
         return view('dashboard',['user'=>$user]);
@@ -43,7 +48,7 @@ class UserController extends Controller
         $user ['name'] = $request['name'];
         $user ['password'] = $request['password'];
         $user -> save();
-        return redirect()->action([UserController::class, 'getUser']);
+        return redirect()->action([UserController::class, 'getTableUser']);
         // error_log('masuk bjir');
         
     }
@@ -51,6 +56,6 @@ class UserController extends Controller
     public function deleteUser(Request $request){
         $user = User::where('id', $request -> id) -> first();
         $user -> delete();
-        return redirect()->action([UserController::class, 'getUser']);
+        return redirect()->action([UserController::class, 'getTableUser']);
     }
 }

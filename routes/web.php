@@ -34,6 +34,8 @@ Route::get('tableuser', [UserController::class,'getTableUser']);
 
 Route::get('edithost', [HostController::class,'editHost']);
 
+Route::get('edituser', [UserController::class,'editUser']);
+
 Route::get('dashboard', [UserController::class,'getaAdmin']);
 
 Route::get('/register', function () {
