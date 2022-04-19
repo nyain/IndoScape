@@ -1,8 +1,9 @@
 <?php
-
+use App\Http\Controllers\Penginapan\PenginapanController;
+use App\Http\Controllers\Wisata\WisataController;
 use App\Http\Controllers\City\CityController;
-use App\Http\Controllers\Host\HostController;
 use App\Http\Controllers\User\UserController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,23 +19,31 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('register');
 });
 
-Route::get('home', [UserController::class,'getUser']);
 
-Route::get('host', [HostController::class,'getHost']);
-Route::get('hostlist', [HostController::class,'getHostList']);
 
-Route::get('city', [CityController::class,'getCity']);
-Route::get('citylist', [CityController::class,'getCityList']);
+Route::get('welcome', [UserController::class,'getUser']);
 
+Route::get('penginapan', [PenginapanController::class,'getPenginapan']);
+Route::get('penginapanlist', [PenginapanController::class,'getPenginapanList']);
+
+Route::get('wisata', [WisataController::class, 'getWisata']);
+Route::get('wisatalist', [WisataController::class, 'getWisataList']);
+
+
+Route::get('tambahKota', [CityController::class,'getCity']);
+Route::get('kota', [CityController::class,'getCityList']);
+Route::get('editkota', [CityController::class,'editCity']);
 
 Route::get('tableuser', [UserController::class,'getTableUser']);
 
-Route::get('edithost', [HostController::class,'editHost']);
-
 Route::get('edituser', [UserController::class,'editUser']);
+Route::get('edithost', [HostController::class,'editHost']);
+Route::get('editpenginapan', [PenginapanController::class,'editPenginapan']);
+
+Route::get('editwisata', [WisataController::class,'editWisata']);
 
 Route::get('dashboard', [UserController::class,'getaAdmin']);
 

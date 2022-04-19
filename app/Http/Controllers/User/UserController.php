@@ -11,7 +11,7 @@ class UserController extends Controller
     public function getUser(){
         if (session() -> get('email') != null) {
             $user = User::all();
-            return view('home',['user'=>$user]);
+            return view('welcome',['user'=>$user]);
         } else {
             return redirect('/');
         }
@@ -22,14 +22,14 @@ class UserController extends Controller
         return view('tableuser',['user'=>$user]);
     }
 
-    public function editUser(Request $request){
-        $user = User::where('id', $request -> id) -> first();
-        return view('edituser',['user'=>$user]);
-    }
-
     public function getaAdmin(){
         $user = User::all();
         return view('dashboard',['user'=>$user]);
+    }
+
+    public function editUser(Request $request){
+        $user = User::where('id', $request -> id) -> first();
+        return view('edituser',['user'=>$user]);
     }
 
     public function addUser(Request $request){

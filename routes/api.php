@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Penginapan\PenginapanController;
+use App\Http\Controllers\Wisata\WisataController;
 use App\Http\Controllers\City\CityController;
-use App\Http\Controllers\Host\HostController;
 use App\Http\Controllers\User\UserController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,10 +31,14 @@ Route::post('/adduser', [UserController::class,'addUser']);
 Route::put('/edituser', [UserController::class,'updateUser']);
 Route::delete('/deleteuser', [UserController::class,'deleteUser']);
 
-Route::post('/addplace', [HostController::class,'addPlace']);
-Route::put('/editplace', [HostController::class,'updatePlace']);
-Route::delete('/deleteplace', [HostController::class,'deleteplace']);
+Route::post('/addpenginapan', [PenginapanController::class,'addPenginapan']);
+Route::put('/editpenginapan', [PenginapanController::class,'updatePenginapan']);
+Route::delete('/deletepenginapan', [PenginapanController::class,'deletePenginapan']);
+
+Route::post('/addwisata', [WisataController::class, 'addWisata']);
+Route::put('/editwisata', [WisataController::class, 'updateWisata']);
+Route::delete('/deletewisata', [WisataController::class, 'deleteWisata']);
 
 Route::post('/addcity', [CityController::class,'addCity']);
 Route::put('/editcity', [CityController::class,'updateCity']);
-Route::delete('/deletecity', [CityController::class,'deleteCity']);
+Route::delete('/deletecity', [CityController::class,'deletecity']);
